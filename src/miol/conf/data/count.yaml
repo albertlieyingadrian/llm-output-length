@@ -1,0 +1,18 @@
+# Count: "Count from 0 to {n}" synthetic dataset (paper, "Models and Datasets").
+# The completion length T is determined by n, so the prompt fixes the target.
+# Values are the overrides from the launch script used for the paper runs: n is
+# drawn from 1..300 and each split takes 299 of the 300 values (seeded per split, see
+# miol/data/synthetic_dataset.py).
+
+# Hydra instantiation target
+_target_: miol.data.SyntheticDatasetBuilder
+
+dataset_name: count
+
+num_train_samples: 299
+num_eval_samples: 299
+min_tokens: 1
+max_tokens: 300
+
+synthetic_system_prompt: "You are a helpful assistant that follows instructions precisely."
+synthetic_user_prompt_template: "Count from 0 to {n}. Only output the numbers separated by a space. Start now:"

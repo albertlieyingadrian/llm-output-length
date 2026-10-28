@@ -1,0 +1,42 @@
+[project]
+name = "llm-output-length"
+version = "0.1.0"
+description = "Linear probes on frozen LLM hidden states for predicting remaining output token count."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Mohamed Amine Merzouk" },
+    { name = "Dmitri Carpov" },
+    { name = "Mirko Bronzi" },
+    { name = "Damiano Fornasiere" },
+    { name = "Adam Oberman" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.11.0",
+    "datasets>=4.2.0",
+    "hydra-core>=1.3.2",
+    "matplotlib>=3.7.0",
+    "numpy",
+    "omegaconf",
+    "pillow>=10.0.0",
+    "safetensors",
+    "torch>=2.9.0",
+    "tqdm",
+    "transformers>=4.57.1",
+    "wandb>=0.22.2",
+]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2607.05316"
+Code = "https://github.com/mamerzouk/llm_output_length"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/miol"]
